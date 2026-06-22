@@ -333,4 +333,373 @@ fn main() {
 
     x %= 4;
     println!("After %= 4: {}", x);
+
+    //3. Operadores de comparación
+
+    /*
+    Los operadores de comparación comparan valores y devuelven true o false:
+
+        Operator	    Name	        Example	        Result
+        ==	            Equal	        5 == 5	        true
+        !=	            Not equal	    5 != 3	        true
+        >	            Greater than	5 > 3	        true
+        <	            Less than	    5 < 3	        false
+        >=	            Greater or equal	5 >= 5	    true
+        <=	            Less or equal	5 <= 3	    false
+
+    Ejemplo:
+    */
+    println!("Operadores de comparación:");
+    let a: i32 = 5;
+    let b: i32 = 10;
+
+    println!("5 == 10: {}", a == b);
+    println!("5 != 10: {}", a != b);
+    println!("5 < 10: {}", a < b);
+    println!("5 >= 10: {}", a >= b);
+
+    //4. Operadores lógicos
+
+    /*
+
+       Los operadores lógicos se utilizan para trabajar con valores booleanos:
+
+
+            Operator	        Name	            Description
+                &&	            AND	            true if both values are true
+                ||	            OR	            true if at least one is true
+                !	            NOT	            inverts the boolean value
+    Ejemplo:
+    */
+    let logged_in: bool = true;
+    let is_admin: bool = false;
+
+    println!("Is regular user: {}", logged_in && !is_admin);
+    println!("Has any access: {}", logged_in || is_admin);
+    println!("Not logged in: {}", !logged_in);
+
+    //
+    // Operaciones Booleandas en Rust
+    //
+
+    /*
+    Muy a menudo, en programación, necesitarás un tipo de dato que solo puede tener uno de dos valores, como por ejemplo:
+
+        - SÍ / NO
+        - ENCENDIDO / APAGADO
+        - VERDADERO / FALSO
+
+    Para ello, Rust dispone de un booltipo de dato conocido como booleano.
+
+    Los booleanos representan valores que son verdadero trueo falso false.
+
+     */
+
+    // Creación de variables booleanas
+
+    /*
+    Puedes almacenar un valor booleano en una variable usando el booltipo:
+
+    Ejemplo:
+     */
+    let is_programming_fun: bool = true;
+    let is_fish_tasty: bool = false;
+
+    println!("Is Programming Fun? {}", is_programming_fun);
+    println!("Is Fish Tasty? {}", is_fish_tasty);
+
+    /*  Recuerda que Rust es lo suficientemente inteligente como para entender
+    que true y false son valores booleanos, lo que significa que no tienes
+    que especificar la bool palabra clave:
+
+    let is_programming_fun = true;
+    let is_fish_tasty = false;
+
+    println!("Is Programming Fun? {}", is_programming_fun);
+    println!("Is Fish Tasty? {}", is_fish_tasty);
+
+     */
+
+    // Booleano de comparación
+
+    /*
+    La mayoría de las veces, no es necesario escribirlo trueusted falsemismo.
+    En cambio, los valores booleanos provienen de la comparación de valores mediante operadores como ==o >:
+    */
+
+    let age: i32 = 20;
+    let can_vote: bool = age >= 18;
+
+    println!("Can vote? {}", can_vote);
+
+    /*
+    Aquí, age >= 18 devuelve true, siempre y cuando la edad sea de 18 años o más.
+     */
+
+    // Uso de booleanos en if sentencias
+
+    /*
+
+    Los valores booleanos se utilizan a menudo en if las sentencias para decidir qué código debe ejecutarse:
+
+    ejemplo:
+
+     */
+
+    let is_logged_in: bool = true;
+
+    if is_logged_in {
+        println!("Welcome back!");
+    } else {
+        println!("Please log in.");
+    }
+
+    /*
+    Genial, ¿verdad? Los booleanos son la base de todas las comparaciones y condiciones en Rust.
+    Aprenderás más sobre las sentencias if y else en el próximo capítulo.
+
+     */
+
+    //
+    //  Condiciones IF / ELSE
+    //
+    println!("Condiciones IF / ELSE: ");
+    /*
+    Ya sabes que Rust admite condiciones de comparación familiares de las matemáticas, como por ejemplo:
+
+        - Menor que: a < b
+        - Menor o igual que: a <= b
+        - Mayor que: a > b
+        - Mayor o igual que: a >= b
+        - Igual a: a == b
+        - Distinto de: a != b
+    Puedes utilizar estas condiciones para realizar diferentes acciones en función de diferentes decisiones.
+
+    Rust tiene las siguientes sentencias condicionales:
+
+    - Se utiliza if para especificar un bloque de código que se ejecutará si se cumple una condición específica. true
+    - Se utiliza else para especificar un bloque de código que se ejecutará si se cumple la misma condición. false
+    - Se utiliza else if para especificar una nueva condición a probar, si la primera condición es false
+    - Se utiliza match para especificar varios bloques de código alternativos que se ejecutarán.
+
+        Nota: A diferencia de muchos otros lenguajes de programación, if..elseen Rust se puede usar como una instrucción
+        o como una expresión (para asignar un valor a una variable). Consulta un ejemplo al final de la página para
+        comprenderlo mejor.
+    */
+
+    // if
+    /*
+
+
+        Se utiliza ifpara especificar un bloque de código que se ejecutará si se cumple una condición true.
+
+    Ejemplo:
+
+     */
+    println!("if statement: ");
+    if 7 > 5 {
+        println!("7 is greater than 5.");
+    }
+
+    // if...else
+
+    /*
+    Si la condición no es verdadera, puede usarla elsepara ejecutar un código diferente:
+
+    Ejemplo:
+
+     */
+    println!("if...else statement: ");
+    let age: i32 = 16;
+
+    if age >= 18 {
+        println!("You can vote.");
+    } else {
+        println!("You are too young to vote.");
+    }
+
+    // else if
+
+    /*
+    Puedes comprobar varias condiciones usando else if:
+
+    Ejemplo:
+
+     */
+    println!("else if statement: ");
+    let score: i32 = 85;
+
+    if score >= 90 {
+        println!("Grade: A");
+    } else if score >= 80 {
+        println!("Grade: B");
+    } else if score >= 70 {
+        println!("Grade: C");
+    } else {
+        println!("Grade: F");
+    }
+
+    // utilizando if como una expresión
+
+    /*
+    En Rust, if...elsetambién se puede usar como una expresión .
+
+    Esto significa que puedes asignar el resultado de una operación ifa una variable:
+
+    ejemplo:
+
+    */
+    println!("if as an expression: ");
+    let time: i32 = 20;
+    let greeting: &str = if time < 18 {
+        "Good day."
+    } else {
+        "Good evening."
+    };
+    println!("{}", greeting);
+
+    /*
+    Cuando se utiliza if como expresión, debe incluir else.
+    Esto garantiza que el resultado siempre tenga un valor.
+     */
+
+    //Sintaxis simplificada de if...else
+
+    /*
+
+    Si cada bloque contiene una sola expresión, puede escribirla de forma más breve en una sola línea:
+
+    Ejemplo:
+
+    let time = 20;
+    let greeting = if time < 18 { "Good day." } else { "Good evening." };
+    println!("{}", greeting);
+
+     */
+
+    let time: i32 = 20;
+    let greeting: &str = if time < 18 {
+        "Good day."
+    } else {
+        "Good evening."
+    };
+    println!("{}", greeting);
+
+    // No Mezcles tipos
+
+    /*
+    Nota: El valor de if y elsedebe ser del mismo tipo, como dos fragmentos de texto o dos números (en el ejemplo anterior, ambos son cadenas de texto).
+
+    Cuando se mezclan tipos, como una cadena y un número entero, se produce un error:
+
+    let number = 5;
+    let result = if number < 10 { "Too small" } else { 100 };
+    println!("{}", result);
+
+    y no va a compilar. Esto se debe a que el primer bloque devuelve un &str,
+    mientras que el segundo bloque devuelve un i32.
+    Rust no puede determinar qué tipo de valor debe tener la variable result.
+
+    error[E0308]: `if` and `else` have incompatible types
+
+
+     */
+
+    //
+    // Match
+    //
+    /*
+
+    Cuando tienes muchas opciones, usar matches más fácil que escribir mucho if...else.
+
+    match Se utiliza para seleccionar uno de los muchos bloques de código que se ejecutarán:
+
+    */
+
+    println!("match statement: ");
+
+    let day: i32 = 4;
+
+    match day {
+        1 => println!("Monday"),
+        2 => println!("Tuesday"),
+        3 => println!("Wednesday"),
+        4 => println!("Thursday"),
+        5 => println!("Friday"),
+        6 => println!("Saturday"),
+        7 => println!("Sunday"),
+        _ => println!("Invalid day."),
+    }
+
+    /*
+        Ejemplo explicado:
+
+    - La match variable ( día ) se evalúa una sola vez.
+    - El valor de la variable día se compara con los valores de cada "rama".
+    - Cada rama comienza con un valor, seguido de =>y un resultado.
+    - Si hay una coincidencia, se ejecuta el bloque de código asociado.
+    - _ Se utiliza para especificar algún código que se ejecutará si no hay coincidencia
+    (como default en otros lenguajes).
+    - En el ejemplo anterior, el valor de día es 4 , lo que significa que se imprimirá "Thursday".
+
+        */
+
+    // Multiples coincidencias
+
+    println!("match statement with multiple matches: ");
+
+    let day: i32 = 6;
+
+    match day {
+        1 | 2 | 3 | 4 | 5 => println!("Weekday"),
+        6 | 7 => println!("Weekend"),
+        _ => println!("Invalid day"),
+    }
+
+    //match con un valor de retorno
+    println!("match statement with return value: ");
+    /*
+    Al igual que if, matchtambién puede devolver un valor:
+
+    Esto significa que puedes guardar el resultado de una coincidencia en una variable:
+
+    ejemplo:
+
+     */
+
+    let day: i32 = 4;
+
+    let result: &str = match day {
+        1 => "Monday",
+        2 => "Tuesday",
+        3 => "Wednesday",
+        4 => "Thursday",
+        5 => "Friday",
+        6 => "Saturday",
+        7 => "Sunday",
+        _ => "Invalid day.",
+    };
+
+    println!("{}", result);
+
+    /*
+        Nota: Cada parte de las matchramas debe ser del mismo tipo , igual que con if...else.
+    */
+
+    //
+    // Rust Loops
+    //
+    println!("Rust Loops: ");
+
+    //Loops
+    println!("Loop statement: ");
+
+    /*
+    Los bucles pueden ejecutar un bloque de código siempre que se cumpla una condición específica.
+
+    Los bucles son muy útiles porque ahorran tiempo, reducen errores y hacen que el código sea más legible. Por ejemplo, en lugar de escribir la misma línea diez veces para imprimir un texto, puedes usar un bucle para que lo repita automáticamente.
+
+    Rust tiene tres tipos de bucles: loop, while, y for.
+
+     */
 }
