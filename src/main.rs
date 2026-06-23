@@ -692,7 +692,7 @@ fn main() {
     println!("Rust Loops: ");
 
     //Loops
-    println!("Loop statement: ");
+    println!("Loops statement: ");
 
     /*
     Los bucles pueden ejecutar un bloque de código siempre que se cumpla una condición específica.
@@ -702,4 +702,78 @@ fn main() {
     Rust tiene tres tipos de bucles: loop, while, y for.
 
      */
+
+    // Loop
+    println!("Loop statement: ");
+    /*
+    loop Es el más simple de los tres tipos de bucles de Rust.
+
+      Se ejecutará indefinidamente a menos que le indiques que se detenga:
+
+      loop {
+        println!("This will repeat forever!");
+    }
+
+    Advertencia: ¡Este bucle nunca se detiene! Deberá presionar Ctrl + C para finalizar el programa.
+
+    Para detener un bucle, utilice la breakpalabra clave:
+
+      */
+
+    let mut count: i32 = 1;
+
+    loop {
+        println!("Hello World!");
+
+        if count == 3 {
+            break;
+        }
+
+        count += 1;
+    }
+
+    /*
+    Ejemplo explicado:
+
+        Esto imprime "¡Hola Mundo!" 3 veces.
+        Utiliza un contador para llevar la cuenta de cuántas veces se ha repetido el bucle.
+        El contador comienza en 1 ( let mut count = 1;).
+        Cada vez que se ejecuta el bucle, el contador aumenta en 1: ( count += 1;).
+        Cuando llega a 3, el bucle se detiene.
+
+     */
+
+    // Devuelve un valor
+    println!("Loop statement with return value: ");
+
+    /*
+        También puede devolver un valor desde un loopuso breakcon un valor.
+
+    Esto te permite guardar el resultado del bucle en una variable:
+
+    Ejemplo:
+         */
+
+    let mut count: i32 = 1;
+
+    let result: i32 = loop {
+        println!("Hello!");
+
+        if count == 3 {
+            break count; // Stop the loop and return the number 3
+        }
+
+        count += 1;
+    };
+
+    println!("The loop stopped at: {}", result);
+
+    /*
+        Este bucle imprime "¡Hola!" hasta que count llega a 3, luego se detiene y devuelve ese número.
+
+        Nota: Cuando guardes el resultado de un bucle en una variable, debes poner un punto y coma ( ;) al final.
+
+        A continuación: Aprende a usar whilebucles para repetir código mientras se cumpla una condición.
+
+    */
 }
