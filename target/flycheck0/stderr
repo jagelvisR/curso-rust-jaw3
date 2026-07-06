@@ -1,58 +1,12 @@
-   0.898546300s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: fingerprint error for rustja v0.1.0 (C:\laragon\www\cursorst\rustja)/Check { test: false }/TargetInner { name: "rustja", doc: true, ..: with_path("C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", Edition2024) }
-   0.898700900s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\laragon\www\cursorst\rustja\target\debug\.fingerprint\rustja-1b43568e8bd2edee\bin-rustja`
-
-Caused by:
-    El sistema no puede encontrar el archivo especificado. (os error 2)
-
-Stack backtrace:
-   0: git_midx_writer_dump
-   1: git_midx_writer_dump
-   2: git_midx_writer_dump
-   3: git_midx_writer_dump
-   4: git_filter_source_repo
-   5: git_filter_source_repo
-   6: git_filter_source_repo
-   7: git_filter_source_repo
-   8: git_filter_source_repo
-   9: git_filter_source_repo
-  10: git_filter_source_repo
-  11: git_libgit2_prerelease
-  12: <unknown>
-  13: <unknown>
-  14: <unknown>
-  15: <unknown>
-  16: git_midx_writer_dump
-  17: git_filter_source_repo
-  18: git_midx_writer_dump
-  19: BaseThreadInitThunk
-  20: RtlUserThreadStart
-   0.952891100s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: fingerprint error for rustja v0.1.0 (C:\laragon\www\cursorst\rustja)/Check { test: true }/TargetInner { name: "rustja", doc: true, ..: with_path("C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", Edition2024) }
-   0.952951700s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\laragon\www\cursorst\rustja\target\debug\.fingerprint\rustja-b73470e1c60749e9\test-bin-rustja`
-
-Caused by:
-    El sistema no puede encontrar el archivo especificado. (os error 2)
-
-Stack backtrace:
-   0: git_midx_writer_dump
-   1: git_midx_writer_dump
-   2: git_midx_writer_dump
-   3: git_midx_writer_dump
-   4: git_filter_source_repo
-   5: git_filter_source_repo
-   6: git_filter_source_repo
-   7: git_filter_source_repo
-   8: git_filter_source_repo
-   9: git_filter_source_repo
-  10: git_filter_source_repo
-  11: git_libgit2_prerelease
-  12: <unknown>
-  13: <unknown>
-  14: <unknown>
-  15: <unknown>
-  16: git_midx_writer_dump
-  17: git_filter_source_repo
-  18: git_midx_writer_dump
-  19: BaseThreadInitThunk
-  20: RtlUserThreadStart
+   0.070941800s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: stale: changed "C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs"
+   0.071019900s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:           (vs) "C:\\laragon\\www\\cursorst\\rustja\\target\\debug\\.fingerprint\\rustja-1b43568e8bd2edee\\dep-bin-rustja"
+   0.071043600s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 13427846824, nanos: 208990800 } < FileTime { seconds: 13427846828, nanos: 61351400 }
+   0.071503400s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: fingerprint dirty for rustja v0.1.0 (C:\laragon\www\cursorst\rustja)/Check { test: false }/TargetInner { name: "rustja", doc: true, ..: with_path("C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", Edition2024) }
+   0.071577600s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "C:\\laragon\\www\\cursorst\\rustja\\target\\debug\\.fingerprint\\rustja-1b43568e8bd2edee\\dep-bin-rustja", reference_mtime: FileTime { seconds: 13427846824, nanos: 208990800 }, stale: "C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", stale_mtime: FileTime { seconds: 13427846828, nanos: 61351400 } }))
+   0.073699000s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: stale: changed "C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs"
+   0.073971000s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:           (vs) "C:\\laragon\\www\\cursorst\\rustja\\target\\debug\\.fingerprint\\rustja-b73470e1c60749e9\\dep-test-bin-rustja"
+   0.073999800s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 13427846824, nanos: 228991600 } < FileTime { seconds: 13427846828, nanos: 61351400 }
+   0.074369800s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint: fingerprint dirty for rustja v0.1.0 (C:\laragon\www\cursorst\rustja)/Check { test: true }/TargetInner { name: "rustja", doc: true, ..: with_path("C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", Edition2024) }
+   0.074413200s  INFO prepare_target{force=false package_id=rustja v0.1.0 (C:\laragon\www\cursorst\rustja) target="rustja"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "C:\\laragon\\www\\cursorst\\rustja\\target\\debug\\.fingerprint\\rustja-b73470e1c60749e9\\dep-test-bin-rustja", reference_mtime: FileTime { seconds: 13427846824, nanos: 228991600 }, stale: "C:\\laragon\\www\\cursorst\\rustja\\src\\main.rs", stale_mtime: FileTime { seconds: 13427846828, nanos: 61351400 } }))
     Checking rustja v0.1.0 (C:\laragon\www\cursorst\rustja)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.39s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.65s

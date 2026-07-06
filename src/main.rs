@@ -776,4 +776,252 @@ fn main() {
         A continuación: Aprende a usar whilebucles para repetir código mientras se cumpla una condición.
 
     */
+
+    // While Loops
+
+    println!("While Loops statement: ");
+
+    /*
+    El whilebucle se ejecuta mientras se cumpla una condición true.
+
+     */
+
+    let mut count: i32 = 1;
+
+    while count <= 5 {
+        println!("Count: {}", count);
+        count += 1;
+    }
+
+    //Detener un bucle While
+    //Puedes detener un whilebucle cuando quieras usando break:
+    println!("While Loops statement with break: ");
+
+    let mut count: i32 = 1;
+
+    while count <= 5 {
+        println!("Count: {}", count);
+
+        if count == 3 {
+            break; // Stop the loop when count is 3
+        }
+
+        count += 1;
+    }
+
+    /*
+        Este bucle imprime "Count: 1", "Count: 2" y "Count: 3", luego se detiene.
+
+        Esto imprime los números del 1 al 5 (el bucle se detiene cuando num llega al 6).
+
+    A continuación: Aprende a usar el forbucle para recorrer un rango de valores.
+
+         */
+
+    //Saltar un valor
+
+    println!("While Loops statement with continue: ");
+
+    let mut num = 1;
+
+    while num <= 10 {
+        if num == 6 {
+            num += 1;
+            continue;
+        }
+
+        println!("Number: {}", num);
+        num += 1;
+    }
+    /*
+        Esta impresora imprime los números del 1 al 10, excepto el número 6.
+
+    A continuación: Aprende a usar el forbucle para recorrer un rango de valores.
+         */
+
+    //El forLoop
+    println!("For Loops statement: ");
+
+    /*
+    Cuando sepa exactamente cuántas veces desea recorrer un bloque de código,
+    utilice el forbucle junto con la inpalabra clave, en lugar de un whilebucle:
+     */
+
+    for i in 1..6 {
+        println!("i is: {}", i);
+    }
+
+    /*
+        Imprime los números del 1 al 5.
+
+    Nota: 1..6 significa desde 1 hasta (pero sin incluir) 6.
+
+    Nota: Rust gestiona la variable contador ( i) automáticamente, a diferencia de muchos otros lenguajes de programación. No es necesario declararla ni incrementarla manualmente.
+
+    */
+
+    //Gama inclusiva
+
+    println!("Inclusive range in For Loops statement: ");
+
+    //Si desea incluir el último número, utilice ..=(dos puntos y un signo de igual):
+
+    for i in 1..=6 {
+        println!("i is: {}", i);
+    }
+
+    //Esta impresora imprime los números del 1 al 6, incluido el 6.
+
+    //Descanso y continuación
+
+    println!("Break and Continue in For Loops statement: ");
+
+    /*
+    Al igual que con otros bucles, puedes usar break para detener el bucle y continue para omitir un valor:
+    */
+
+    for i in 1..=10 {
+        if i == 3 {
+            continue; // skip 3
+        }
+        if i == 5 {
+            break; // stop before printing 5
+        }
+        println!("i is: {}", i);
+    }
+
+    /*
+    Esto imprime 1, 2 y 4. Se salta el 3 y se detiene antes del 5.
+     */
+
+    //Resumen de bucles de Rust
+
+    /*  Rust tiene tres tipos de bucles que permiten ejecutar código repetidamente.
+    Cada uno se utiliza en situaciones diferentes: */
+
+    //1.loop
+    /*El tipo de bucle más simple.
+    Se ejecuta indefinidamente a menos que lo detengas con break.
+
+    loop {
+        // do something
+        if condition {
+            break;
+        }
+    }
+     */
+
+    //2.while
+    println!("While Loops statement: ");
+    /* Repite el código mientras una condición sea verdadera.
+    Comprueba la condición antes de cada iteración del bucle. */
+
+    let mut count: i32 = 0;
+    while count < 5 {
+        println!("Count: {}", count);
+        count += 1;
+    }
+
+    /* Úsalo while cuando quieras repetir el código hasta que ocurra algo. */
+
+    //3.for
+    println!("For Loops statement: ");
+    /* Repite el código un número fijo de veces. */
+
+    for i in 1..=5 {
+        println!("{}", i);
+    }
+
+    /* Úselo for cuando sepa exactamente qué elementos recorrer en el bucle. */
+
+    /*
+    Palabras clave adicionales
+        Puedes utilizarlos en cualquier bucle:
+
+        break- detener el bucle
+
+        continue- omitir un valor en el bucle
+
+     */
+
+    //
+    //Funciones de Rust
+    //
+    println!("Funciones de Rust: ");
+
+    //funciones
+
+    /*
+        Una función es un bloque de código que solo se ejecuta cuando se la llama.
+
+        Las funciones se utilizan para organizar el código, evitar repeticiones
+        y facilitar la comprensión del programa.
+
+    */
+
+    //Creación de una función
+
+    /*
+            Para crear una función, utilice la fn palabra clave,
+            seguida del nombre de la función y un conjunto de paréntesis () y llaves {}:
+
+            ejemplo:
+
+            fn function_name() {
+                // code to be executed
+            }
+
+    */
+
+    //Llamando a una función
+
+    /*
+    Ahora que has creado una función, puedes ejecutarla llamándola .
+
+    Para llamar a una función, escriba el nombre de la función seguido de dos paréntesis ().
+
+    ejemplo:
+    */
+
+    // Create a function
+    fn say_hello() {
+        println!("Hello from a function!");
+    }
+
+    say_hello(); // Call the function
+
+    //Funciones con parámetros
+    println!("Funciones con parámetros: ");
+
+    /*
+    Puedes enviar información a una función usando parámetros.
+    Los parámetros se escriben dentro de los paréntesis ().
+    */
+
+    fn greet(name: &str) {
+        println!("Hello, {}!", name);
+    }
+
+    greet("Jose"); // Call the function with a parameter
+
+    /*En este ejemplo, la función toma un parámetro de cadena llamado name y lo imprime en el mensaje de saludo. */
+
+    //Funciones con valores de retorno
+    println!("Funciones con valores de retorno: ");
+
+    /*
+
+        Una función también puede devolver un valor.
+
+        Utilice el  -> símbolo en el encabezado de la función para indicar qué tipo de valor se devolverá.
+
+        Dentro de la función, utilice la return palabra clave para devolver el valor:
+
+           fn add(a: i32, b: i32) -> i32 {
+               return a + b;
+    }
+
+    let sum = add(3, 4);
+    println!("Sum is: {}", sum);
+    */
 }
