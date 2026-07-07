@@ -1024,4 +1024,159 @@ fn main() {
     let sum = add(3, 4);
     println!("Sum is: {}", sum);
     */
+    fn addf(a: i32, b: i32) -> i32 {
+        return a + b;
+    }
+    let sum = addf(3, 4);
+    println!("Sum is: {}", sum);
+
+    /*
+    Esta función suma dos números y devuelve el resultado.
+
+    En Rust, puedes omitir la return palabra clave.
+    Simplemente escribe el valor en la última línea de la función,
+    sin punto y coma :
+
+        */
+
+    println!("Funciones con valores de retorno sin return: ");
+
+    fn addsr(a: i32, b: i32) -> i32 {
+        a + b
+    }
+
+    let sum = addsr(3, 4);
+    println!("Sum is: {}", sum);
+
+    /*
+            La última línea a + bse devuelve automáticamente.
+
+        Ambos ejemplos hacen lo mismo. Tú decides cuál usar.
+
+
+        ¿Por qué usar funciones?
+        - Para organizar tu código
+        - Para evitar repetir el mismo código
+        - Para que sus programas sean más fáciles de leer y modificar.
+
+    */
+
+    //
+    //Scope
+    //
+    println!("Scope: ");
+
+    /*
+        Ahora que ya entiendes cómo funcionan las funciones,
+        es importante aprender cómo se comportan las variables
+        dentro y fuera de ellas.
+
+        El ámbito se refiere a dónde se permite el uso de una variable.
+
+        Una variable solo existe dentro del bloque donde fue creada.
+
+        Un bloque es todo lo que está dentro de las llaves { }.
+
+    */
+
+    // variable dentro de una función
+    println!("Variable dentro de una función: ");
+    /*
+        Una variable creada dentro de una función solo existe dentro de esa función:
+
+
+        fn myFunction() {
+            let message = "Hello!";
+            println!("{}", message); // You can access the message variable here
+        }
+
+        myFunction();
+
+        println!("{}", message);// Error - you cannot access the message variable outside of the function
+
+
+        Nota: La variable message solo existe dentro de la función.
+        Intentar usarla fuera de la función provocará un error.
+    */
+
+    // Variable dentro de un bloque
+    println!("Variable dentro de un bloque: ");
+    /*
+        También puedes crear bloques dentro de otro código,
+        como en if sentencias o bucles.
+        Las variables creadas en estos bloques solo son válidas dentro de ellos.
+
+        Ejemplo:
+
+    */
+
+    let score: i32 = 80;
+
+    if score > 50 {
+        let result = "Pass";
+        println!("Result: {}", result);
+    }
+
+    println!("Result: {}", result); // Error: result is out of scope here
+
+    // Variables en el mismo ambito
+
+    /*
+    En Rust, puedes declarar una nueva variable con el mismo nombre en el
+    mismo ámbito usando let. Esto se llama sombreado :
+
+    Ejemplo:
+    */
+
+    let x: i32 = 5;
+    let x: i32 = x + 1;
+    println!("The value of x is: {}", x);
+
+    /*
+       La segunda x reemplaza a la primera.
+       El valor 5 ya no es accesible después de la segunda declaración.
+
+       Esto difiere de los lenguajes que no permiten reutilizar nombres de variables.
+       En Rust, es una característica que se utiliza para transformar
+       o actualizar valores de forma segura.
+
+       También puedes reutilizar el nombre de una variable dentro de
+       un nuevo bloque.
+
+       Ejemplo:
+
+    */
+
+    let x: i32 = 5;
+
+    {
+        let x: i32 = 10;
+        println!("Inside block: {}", x);
+    }
+
+    println!("Outside block: {}", x);
+
+    /*
+        Aquí, las dos xvariables se encuentran en ámbitos diferentes.
+
+        La variable interna x solo existe dentro del bloque.
+
+        Fuera del bloque, se mantiene su valor original.
+
+        Nota: Si bien se permite el uso de nombres repetidos,
+        usar el mismo nombre con demasiada frecuencia puede dificultar
+        la lectura del código.
+        Utilice nombres claros siempre que sea posible.
+
+        Por qué el scope es importante
+
+        Comprender el scope te ayuda a:
+
+        Saber dónde se puede usar una variable
+
+        Evitar conflictos de nombres
+
+        Evite errores al trabajar con funciones, bucles y condicionales.
+
+    */
 }
