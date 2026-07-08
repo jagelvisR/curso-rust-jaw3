@@ -1157,7 +1157,7 @@ fn main() {
     println!("Outside block: {}", x);
 
     /*
-        Aquí, las dos xvariables se encuentran en ámbitos diferentes.
+        Aquí, las dos x variables se encuentran en ámbitos diferentes.
 
         La variable interna x solo existe dentro del bloque.
 
@@ -1179,4 +1179,74 @@ fn main() {
         Evite errores al trabajar con funciones, bucles y condicionales.
 
     */
+
+    //
+    // Strings
+    //
+    println!("Strings: ");
+    /*
+       Tambien conocidas como cadenas de texto,
+       Las cadenas de texto se utilizan para almacenar texto.
+
+       Ya has aprendido que puedes usar este &str tipo para crear una cadena
+
+       Ejemplo:
+
+    */
+
+    let greeting: &str = "Hello";
+    println!("{}", greeting);
+
+    /*
+    Ten en cuenta que las cadenas están rodeadas de comillas dobles ( " Hola " ).
+
+    En Rust existen dos tipos principales de cadenas de caracteres:
+
+    &str - se denomina "segmentos de cadena" y se utiliza para texto fijo como "Hello"
+    String - se utiliza cuando se necesita una cadena que pueda cambiar
+
+    En este capítulo, trabajarás principalmente con este String tipo de datos
+    porque es más flexible y se puede modificar con el tiempo.
+     */
+
+    //Crear una cadena de texto
+    println!("Crear una cadena de texto: ");
+    /*
+
+    Puedes crear un String a partir de un literal de cadena usando
+    el to_string() método o la String::from() función
+
+    Ejemplo:
+    */
+
+    let text1c: String = "Hello World".to_string();
+    println!("Crear una cadena de texto con .to_string(): {}", text1c);
+
+    let text2c: String = String::from("Hello Rust");
+    println!("Crear una cadena de texto con String::from(): {}", text2c);
+
+    //cambiar una cadena
+    println!("Cambiar una cadena de texto: ");
+
+    /*
+       Las cadenas son mutables, por lo que puedes cambiarlas si se declaran con mut.
+
+       Se utiliza push_str() para añadir texto a una cadena:
+
+
+    */
+    println!("Cambiar una cadena de texto con push_str(): ");
+    let mut greeting: String = String::from("Hello");
+    greeting.push_str(" World");
+    println!("{}", greeting); // Hello World
+
+    /*
+        Se utiliza push() para añadir un carácter:
+
+        Ejemplo:
+    */
+    println!("Cambiar una cadena de texto con push(): ");
+    let mut word: String = String::from("Hi");
+    word.push('!');
+    println!("{}", word); // Hi!
 }
