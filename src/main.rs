@@ -1,3 +1,6 @@
+// Import HashMap
+use std::collections::HashMap;
+
 fn main() {
     println!("Hello, world!");
 
@@ -1249,4 +1252,750 @@ fn main() {
     let mut word: String = String::from("Hi");
     word.push('!');
     println!("{}", word); // Hi!
+
+    //concatenar cadenas
+    println!("Concatenar cadenas: ");
+
+    /*
+    Puedes combinar cadenas usando la format! macro:
+     */
+
+    let s1: String = String::from("Hello");
+    let s2: String = String::from("World!");
+    let s3: String = String::from("What a beautiful day!");
+    let result: String = format!("{} {} {}", s1, s2, s3);
+    println!("{}", result);
+
+    /*
+    Nota: Solo puedes agregar un &stra un Stringcon +.
+    Por eso se usa aquí &s2 y (una porción de cadena).&s
+
+    Es bueno saberlo: format! suele ser la opción preferida
+    en lugar de usar + para combinar cadenas.
+
+
+     */
+
+    //Longitud de una cadena
+    println!("Longitud de una cadena: ");
+
+    /*
+    Puedes usar este .len() método para obtener la longitud de una cadena:
+
+     */
+    let name: String = String::from("John");
+    println!("Length: {}", name.len()); // 4
+
+    //
+    //Ownership
+    //
+
+    println!("Ownership: ");
+
+    //Propiedad
+
+    println!("Propiedad: ");
+
+    /*
+       Rust utiliza el concepto de "propiedad" para
+       gestionar la memoria de forma segura.
+
+       En Rust, cada valor tiene un propietario.
+       El propietario suele ser una variable.
+
+
+       Reglas de propiedad
+
+       - Cada valor tiene un propietario.
+
+       - Cuando el propietario deja de estar dentro del alcance,
+       el valor se elimina.
+
+       - Solo puedes tener un propietario a la vez,
+       a menos que lo tomes prestado
+       (tema que se tratará en el próximo capítulo).
+
+    */
+
+    // Ejemplo de propiedad
+    println!("Ejemplo de propiedad: ");
+
+    /*
+       En este ejemplo, aposee la cadena. Luego la movemos a b:
+
+       Ejemplo:
+    */
+    let a: String = String::from("Hello");
+    let b: String = a;
+
+    // println!("{}", a); Error: a no longer owns the value
+    println!("{}", b); // Ok: b now owns the value
+
+    /*
+
+       Cuando asignamos aa b, la propiedad pasa a .
+       Esto significa que solo bpuede usar el valor ahora,
+       porque aya no es válido.
+
+       Pero los tipos simples como números, caracteres y booleanos se copian , no se mueven.
+
+       Esto significa que aún puedes usar la variable original después de asignarla a otra:
+
+    */
+
+    let a = 5;
+    let b = a;
+    println!("a = {}", a); // Works
+    println!("b = {}", b); // Works
+
+    /*
+    Aquí, a se copia en b, no se mueve, por lo que aún puede usar b.
+     */
+
+    //Clon
+
+    println!("Clon: ");
+
+    /*
+       Para otros tipos, como String,
+       si realmente quieres conservar el valor original y
+       también asignarlo a otra variable,
+       puedes usar el .clone() método,
+       que hace una copia de los datos:
+
+       Ejemplo:
+    */
+
+    let a = String::from("Hello");
+    let b = a.clone(); // Now both have the same value
+
+    println!("a = {}", a); // Works
+    println!("b = {}", b); // Works
+
+    /*
+        Sin embargo, si no necesita poseer el valor dos veces,
+        usar una referencia ( &) suele ser mejor que clonar,
+        lo cual aprenderá más en el próximo capítulo.
+
+        Por qué la propiedad importa
+
+        - Rust utiliza la propiedad para liberar automáticamente la memoria cuando
+        ya no es necesaria.
+        - Evita errores como el uso de memoria que ya ha sido eliminada.
+        - Es una de las razones por las que Rust es tan seguro y rápido.
+        - A continuación: Aprenda sobre el préstamo : cómo permitir que otras partes
+        de su programa utilicen un valor sin tomar posesión del mismo.
+    */
+
+    //
+    //Borrowing and References de rust
+    //
+    println!("Borrowing and References de Rust: ");
+
+    //Préstamo y referencias
+
+    println!("Préstamo y referencias: ");
+
+    /*
+       A veces uno quiere usar un valor sin apropiarse de él.
+
+       Rust te permite hacer esto usando una referencia;
+       esto se llama préstamo :
+
+    */
+
+    // ¿Qué es una referencia?
+
+    /*
+       Una referencia te permite ver un valor sin poseerlo.
+       Para crear una referencia, utiliza el & símbolo
+
+       ejemplo:
+
+    */
+
+    let a: String = String::from("Hello");
+    let b: &String = &a;
+
+    println!("a = {}", a);
+    println!("b = {}", b);
+
+    /*
+       Dado que b solo está tomando prestado el valor,
+       a sigue siendo de su propiedad.
+    */
+
+    // Referencias mutables
+    println!("Referencias mutables: ");
+
+    /*
+       Si desea cambiar un valor a través de una referencia,
+       debe hacer que la referencia mut:
+
+    */
+
+    let mut name: String = String::from("John");
+    let name_ref: &mut String = &mut name;
+    name_ref.push_str(" Doe");
+
+    println!("{}", name_ref); // John Doe
+
+    /*
+       Nota: ¡Solo puedes tener una referencia mutable a un valor a la vez!
+
+       Por qué es importante pedir préstamos
+
+       - Pedir prestado te ayuda a reutilizar tus valores de forma segura, sin regalarlos.
+       - Te permite usar valores sin tomar posesión de ellos.
+       - Evita la clonación, que puede ser lenta para grandes cantidades de datos.
+       - Hace que tus programas sean más seguros y rápidos.
+    */
+
+    ///////////////
+    // Estructuras de datos en rust
+    ///////////////
+    println!("Estructuras de datos en Rust: ");
+
+    //
+    // Estructuras de datos
+    //
+    println!("Estructuras de datos: ");
+
+    /*
+       En Rust, las estructuras de datos se utilizan
+       para almacenar y organizar valores.
+
+       Rust proporciona muchas estructuras de datos integradas.
+       Cada una se utiliza para manejar datos de diferentes maneras.
+
+       Algunos de los más comunes son:
+
+       - Formación
+       - Vector (Vec)
+       - Tupla
+       - Mapa hash
+
+       Más adelante las analizaremos todas en detalle,
+       pero por ahora, aquí les ofrecemos una breve
+       introducción a cada una.
+
+    */
+
+    //Matrices
+    println!("Matrices: ");
+
+    /*
+        En Rust, un array es una lista de valores de tamaño fijo, todos del mismo tipo.
+
+        No se puede aumentar ni disminuir el tamaño de una matriz una vez creada.
+
+        Para acceder a un elemento de una matriz, consulte su número de índice.
+
+        Los índices de los arreglos comienzan con 0:
+        [0] es el primer elemento,
+        [1] es el segundo elemento, etc.
+
+        Ejemplo:
+    */
+
+    let fruits: [&str; 3] = ["apple", "banana", "orange"];
+    println!("Last fruit: {}", fruits[2]);
+
+    //Vectores
+    println!("Vectores: ");
+    /*
+        Un vector es una matriz redimensionable.
+        A diferencia de las matrices convencionales,
+        los vectores pueden aumentar o disminuir de tamaño.
+
+        Ejemplo:
+    */
+
+    let mut fruits: Vec<&str> = vec!["apple", "banana"];
+    fruits.push("cherry");
+
+    println!("Last fruit: {}", fruits[2]);
+
+    //Tuplas
+    println!("Tuplas: ");
+
+    /*
+       Una tupla puede contener múltiples valores de diferentes tipos.
+       Es útil para agrupar diferentes tipos.
+
+       Se accede a los elementos de una tupla usando un punto
+       y un número de índice, como person.1, etc.
+
+       Ejemplo:
+    */
+    let person: (&str, i32, bool) = ("John", 30, true);
+    println!("Name: {}", person.0);
+    println!("Age: {}", person.1);
+    println!("Is active: {}", person.2);
+
+    //Hash Maps
+    println!("Hash Maps: ");
+
+    /*
+        Un HashMap almacena pares clave-valor.
+        Permite buscar un valor utilizando una clave.
+
+        Para usar HashMap, debes importarlo de la biblioteca estándar.
+
+        Ejemplo:
+    */
+
+    let mut capital_cities: HashMap<&str, &str> = HashMap::new();
+    capital_cities.insert("France", "Paris");
+    capital_cities.insert("Japan", "Tokyo");
+
+    println!("Capital of Japan is {}", capital_cities["Japan"]);
+
+    /*
+        Descripción general de las estructuras de datos
+
+    Estructura de datos	                Caso de uso	                                ¿Puede crecer?
+
+    Formación (matrices)	    Lista de tamaño fijo de valores del mismo tipo.	        No
+    Vector (Vec)	            Lista ampliable de valores del mismo tipo	            Sí
+    Tupla	                    Agrupa los diferentes tipos juntos	                    No
+    Mapa hash (HashMap)	        Búsqueda de clave-valor	                                Sí
+
+
+    A continuación , vamos a examinar con más detalle cada estructura de datos.
+
+
+     */
+
+    //
+    // Matrices d Rust
+    //
+    println!("Matrices de Rust: ");
+
+    //Matrices
+
+    /*
+       Los arreglos se utilizan para almacenar
+       múltiples valores en una sola variable,
+       en lugar de declarar variables separadas para cada valor.
+    */
+
+    //Crear un array
+
+    /*
+       Puedes crear una matriz usando corchetes [ ]
+       y separar los valores con comas.
+
+       Nota: Asegúrese de que todos los valores sean
+       del mismo tipo de datos (enteros en el ejemplo siguiente)
+
+       Ejemplo:
+
+    */
+
+    let numbers_arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+    println!("First number: {}", numbers_arr[0]); // 1
+
+    //Acceso a los elementos de un array
+
+    println!("Acceso a los elementos de un array: ");
+
+    /*
+     Para acceder a un elemento de una matriz,
+     consulte su número de índice.
+
+    Los índices de los arreglos comienzan con 0:
+    [0] es el primer elemento,
+    [1] es el segundo elemento, etc.
+
+    Esta instrucción accede al valor del primer elemento [0] en numbers:
+    */
+
+    let numbers: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("The first number is: {}", numbers[0]);
+
+    //Longitud de la matriz
+
+    println!("Longitud de la matriz: ");
+
+    /*Puedes obtener el número de elementos en un array usando el .len()método:
+
+     Ejemplo:
+    */
+    println!("The length of the array is: {}", numbers.len());
+
+    // recorrer un array
+    println!("Recorrer un array: ");
+
+    /*
+        Puedes recorrer los elementos del array con un bucle for.
+
+        ejemplo:
+
+    */
+
+    let fruits: [&str; 3] = ["apple", "banana", "orange"];
+    for fruit in fruits {
+        println!("I like {}.", fruit);
+    }
+
+    //imprimir la matriz completa
+
+    println!("Imprimir la matriz completa: ");
+    /*
+       Nota: Al imprimir toda la matriz, debe usar {:?} dentro de println!.
+
+       Ejemplo:
+    */
+
+    let numbersd: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("{:?}", numbersd);
+
+    /*
+
+       Si solo estás imprimiendo un elemento del array, puedes usar {}.
+
+       Ejemplo:
+
+    */
+
+    let numbersdd: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("{}", numbersdd[0]);
+
+    /*
+       En resumen:
+
+       Al imprimir un solo elemento de una matriz, utilice {}.
+
+       Al imprimir la matriz completa, utilice {:?}.
+
+       Si te preguntas por qué no usamos {:?}
+       dentro del bucle (en el ejemplo anterior de esta página),
+       es porque en un bucle estás imprimiendo cada valor
+       individual del array.
+       Como cada valor es una cadena, {} funciona.
+       Pero para imprimir todo el array, necesitas usar {:?}.
+
+       Una buena regla es usar {} para tipos básicos como cadenas,
+       números y booleanos, y {:?}
+       para estructuras de datos como matrices y vectores ,
+       al imprimir la estructura completa.
+    */
+
+    //Tamaño fijo (matrices) frente a tamaño dinámico (vectores)
+    println!("Tamaño fijo (matrices) frente a tamaño dinámico (vectores): ");
+
+    /*
+
+       Al hablar de arrays en Rust, a menudo oirás los términos tamaño fijo y
+       tamaño dinámico .
+
+       Esto se debe a que los arrays en Rust tienen un tamaño fijo ,
+       lo que significa que no se pueden agregar ni eliminar elementos
+       después de que se haya creado el array:
+
+       // An array with 3 elements
+       let mut cars = ["Volvo", "BMW", "Ford"];
+
+       // Trying to add another element (a fourth element) to the cars array will result in an error
+       cars[3] = "Mazda";   // Error: index out of bounds
+
+    */
+
+    //Vectores - Ejemplo de tamaño dinámico
+    println!("Vectores - Ejemplo de tamaño dinámico: ");
+
+    /*
+        Para operaciones que requieren agregar y eliminar elementos de una matriz,
+        puede usar vectores , que son matrices redimensionables.
+
+        El tamaño de un vector es dinámico,
+        lo que significa que puede crecer y encogerse según sea necesario.
+
+        Puedes usar la vec!macro para crear un vector.
+
+        Ejemplo:
+
+
+    */
+
+    // A vector with 3 elements
+    let mut cars: Vec<&str> = vec!["Volvo", "BMW", "Ford"];
+
+    // Add another element
+    cars.push("Mazda");
+
+    println!("{:?}", cars); // ["Volvo", "BMW", "Ford", "Mazda"]
+
+    //
+    // Vectores en rust
+    //
+
+    println!("Vectores en Rust: ");
+
+    /*
+    Un vector es una matriz redimensionable.
+    A diferencia de las matrices convencionales,
+    los vectores pueden aumentar o disminuir de tamaño.
+     */
+
+    // creación de un vector
+    println!("Creación de un vector: ");
+
+    /*
+       Para crear un vector, utilice la vec! macro
+
+       Ejemplo:
+       let mut numbers = vec![1, 2, 3, 4, 5];
+    */
+    let fruits: Vec<&str> = vec!["apple", "banana", "orange"];
+
+    /*
+        Esto crea un vector con tres elementos de cadena.
+    */
+
+    // Acceso a elementos vectoriales
+    println!("Acceso a elementos vectoriales: ");
+
+    /*
+    Puedes acceder a los valores de un vector usando
+    números de índice (al igual que con los arreglos):
+    */
+
+    println!("First fruit: {}", fruits[0]);
+
+    //Cambiar valores del vector
+    println!("Cambiar valores del vector: ");
+
+    /*
+        Para cambiar un valor en el vector, consulte el número de índice y
+        asígnele un nuevo valor.
+
+        Recuerda hacer que el vector sea mutable (usando la mutpalabra clave)
+
+        Ejemplo:
+        let mut fruits = vec!["apple", "banana", "orange"];
+        fruits[0] = "grape";
+    */
+    let mut fruitsmut = vec!["apple", "banana", "orange"];
+
+    fruitsmut[0] = "grape";
+    println!("New first fruit: {}", fruitsmut[0]);
+
+    println!("All fruits: {:?}", fruitsmut);
+
+    //Agregar elementos a un vector
+    println!("Agregar elementos a un vector: ");
+
+    /*
+       Puedes agregar un nuevo elemento al final de un
+       vector usando el push() método
+
+       ejemplo:
+    */
+
+    let mut fruitsd = vec!["apple", "banana"];
+    fruitsd.push("cherry");
+    println!("{:?}", fruitsd); // ["apple", "banana", "cherry"]
+
+    //Eliminar elementos de un vector
+    println!("Eliminar elementos de un vector: ");
+
+    /*
+        Puedes eliminar un elemento del final de un vector usando el pop() método
+
+        ejemplo:
+    */
+    let mut fruitsdd = vec!["apple", "banana", "cherry"];
+    fruitsdd.pop();
+    println!("{:?}", fruitsdd); // ["apple", "banana"]
+
+    //Agregar o eliminar elementos en un índice específico.
+    println!("Agregar o eliminar elementos en un índice específico: ");
+
+    /*
+       Los vectores de Rust están diseñados para crecer y encogerse al final ,
+       pero también puedes agregar o eliminar elementos al principio o
+       en un índice específico .
+
+       Se utiliza insert() para añadir un elemento en un índice específico:
+
+       Ejemplo:
+       Añade "manzana" al principio del vector:
+
+
+    */
+    println!("Agregar un elemento al principio del vector: ");
+    let mut fruitsdfg = vec!["banana", "orange"];
+    fruitsdfg.insert(0, "apple");
+    println!("{:?}", fruitsdfg); // ["apple", "banana", "orange"]
+
+    /*
+    Ejemplo:
+        Añade "manzana" en el medio del vector:
+
+     */
+    println!("Agregar un elemento en el medio del vector: ");
+    let mut fruitsdsc = vec!["banana", "orange"];
+    fruitsdsc.insert(1, "apple");
+    println!("{:?}", fruitsdsc); // ["banana", "apple", "orange"]
+
+    //Eliminar el primer elemento de un vector
+    println!("Eliminar el primer elemento de un vector: ");
+
+    /*
+       Se utiliza remove() para eliminar un
+       elemento de un índice específico
+
+       Ejemplo:
+
+       Elimine el primer elemento del vector:
+
+    */
+
+    let mut fruitssddfgb = vec!["apple", "banana", "orange"];
+    fruitssddfgb.remove(0);
+    println!("{:?}", fruitssddfgb); // ["banana", "orange"]
+
+    /*
+    Nota: Agregar o eliminar elementos desde el principio es más lento que al final,
+    porque todos los demás elementos tienen que cambiar de posición.
+     */
+
+    //Longitud del vector
+    println!("Longitud del vector: ");
+
+    /*
+       Puedes averiguar cuántos elementos hay
+       en un vector utilizando el .len() método
+
+       Ejemplo:
+    */
+    let fruitslen: Vec<&str> = vec!["apple", "banana", "cherry"];
+    println!("There are {} fruits.", fruitslen.len());
+
+    //Recorrer un vector
+    println!("Recorrer un vector: ");
+
+    /*
+       Al igual que con los arrays, puedes usar un forbucle para
+       recorrer todos los valores de un vecto
+
+       Ejemplo:
+
+    */
+
+    let fruitssdcdfv: Vec<&str> = vec!["apple", "banana", "orange"];
+    for fruit in &fruitssdcdfv {
+        println!("I like {}.", fruit);
+    }
+
+    /*
+       Nota: Utilice esta opción &fruits para tomar prestado el vector
+       en lugar de moverlo.
+
+       En Rust, "tomar prestado" significa usar una referencia
+       a un valor en lugar de tomar posesión de él.
+       Cuando recorres un vector sin usar `&`, los valores se mueven fuera del vector
+       y ya no puedes usarlo.
+       Pero cuando tomas prestado el vector usando `&`,
+       aún puedes usarlo más adelante en tu programa.
+
+    */
+
+    //
+    //Tuplas en rust
+    //
+    println!("Tuplas en Rust: ");
+
+    // Tuplas
+    println!("Tuplas: ");
+    /*
+       Una tupla es un grupo de valores de diferentes tipos,
+       almacenados en una sola variable.
+
+       Las tuplas son útiles cuando se desea devolver o
+       trabajar con varios valores a la vez.
+    */
+
+    /*
+    Una tupla es un grupo de valores de diferentes tipos,
+    almacenados en una sola variable.
+
+    Las tuplas son útiles cuando se desea devolver
+    o trabajar con varios valores a la vez.
+
+     */
+
+    // Crear una tupla
+    println!("Crear una tupla: ");
+    /*
+    Las tuplas se escriben usando paréntesis (),
+    con los valores separados por comas
+
+    Ejemplo:
+
+
+     */
+
+    let person: (&str, i32, bool) = ("John", 30, true);
+    println!(
+        "Name: {}, Age: {}, Is active: {}",
+        person.0, person.1, person.2
+    );
+
+    /*
+    Esta tupla contiene un &str, un i32, y un bool.
+    */
+
+    //Valores de Tupla de acceso
+    println!("Valores de Tupla de acceso: ");
+
+    /*
+       Puedes acceder a los valores de una tupla
+       usando un punto . seguido del índice:
+    */
+    println!("Name: {}", person.0);
+    println!("Age: {}", person.1);
+    println!("Is active: {}", person.2);
+
+    //Desempaquetar de tuplas
+    println!("Desempaquetar de tuplas: ");
+
+    /*
+    Cuando creamos una tupla, normalmente le asignamos valores.
+    Esto se llama "empaquetar" una tupla
+
+    Ejemplo:
+    let person = ("Jenny", 45, false);
+
+    Pero, en Rust, también podemos extraer los valores y
+    volver a colocarlos en variables. Esto se llama "desempaquetar"
+
+    Ejemplo
+
+     */
+    let person: (&str, i32, bool) = ("Jenny", 45, false);
+    let (name, age, active) = person;
+
+    println!("Name: {}", name);
+    println!("Age: {}", age);
+    println!("Active: {}", active);
+
+    //Devuelve una tupla desde una función
+    println!("Devuelve una tupla desde una función: ");
+
+    /*
+    Las tuplas se utilizan a menudo para devolver múltiples
+    valores desde una función
+
+    Ejemplo:
+
+    */
+    fn get_user() -> (String, i32) {
+        (String::from("Liam"), 25)
+    }
+    let user: (String, i32) = get_user();
+    println!("User: {} ({} years old)", user.0, user.1);
 }
