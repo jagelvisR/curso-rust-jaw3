@@ -1,1 +1,1 @@
-C:\laragon\www\cursorst\rustja\target\debug\rustja.exe: C:\laragon\www\cursorst\rustja\src\main.rs
+C:\laragon\www\crusorust\target\debug\rustja.exe: C:\laragon\www\crusorust\src\main.rs

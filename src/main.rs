@@ -1998,4 +1998,195 @@ fn main() {
     }
     let user: (String, i32) = get_user();
     println!("User: {} ({} years old)", user.0, user.1);
+
+    //Hash Maps en rust
+    println!("Hash Maps en Rust: ");
+
+    /*
+
+    Un HashMap es una colección de pares clave/valor.
+
+    Los HashMaps son excelentes cuando desea almacenar valores y encontrarlos mediante una clave.
+
+    Para utilizar HashMap, debes importarlo desde la biblioteca estándar de Rust:
+
+    - use std::collections::HashMap;
+    */
+
+    // Crear un HashMap
+    println!("Crear un HashMap: ");
+
+    /* Puede crear un HashMap nuevo y vacío y agregarle elementos:
+
+    Ejemplo:
+    */
+
+    // Create a HashMap called capitalCities
+    let mut capital_citiess = HashMap::new();
+
+    // Add keys and values (Country, City)
+    capital_citiess.insert("England", "London");
+    capital_citiess.insert("Germany", "Berlin");
+    capital_citiess.insert("Norway", "Oslo");
+
+    println!("{:?}", capital_citiess);
+
+    //Valores de Acceso
+    println!("Valores de Acceso: ");
+
+    //Puede utilizar el.get() método para acceder a un valor en un HashMap mediante su clave:
+    if let Some(city) = capital_citiess.get("England") {
+        println!("The capital of England is {}.", city);
+    } else {
+        println!("England is not in the map.");
+    }
+
+    //Actualizar valores
+    println!("Actualizar valores: ");
+
+    /*
+    Si inserta un nuevo valor utilizando una clave que ya existe,
+    el valor anterior se reemplaza por el nuevo
+
+    Ejemplo:
+     */
+
+    capital_citiess.insert("England", "London");
+    capital_citiess.insert("England", "Berlin");
+
+    println!("{:?}", capital_citiess); // The capital of England is now Berlin
+
+    //Eliminar valores
+    println!("Eliminar valores: ");
+
+    /*
+    Para eliminar una clave de un HashMap, utilice el.remove() método:
+     */
+
+    // Add keys and values (Country, City)
+    capital_citiess.insert("England", "London");
+    capital_citiess.insert("Germany", "Berlin");
+    capital_citiess.insert("Norway", "Oslo");
+
+    // Remove the key "England"
+    capital_citiess.remove("England");
+
+    println!("{:?}", capital_citiess);
+
+    // Recorrer un HashMap
+    println!("Recorrer un HashMap: ");
+
+    /*Puede utilizar un for bucle para recorrer todos los pares clave/valor: */
+
+    // Add keys and values (Country, City)
+    capital_citiess.insert("England", "London");
+    capital_citiess.insert("Germany", "Berlin");
+    capital_citiess.insert("Norway", "Oslo");
+
+    // Loop through the HashMap
+    for (country, city) in &capital_citiess {
+        println!("The capital of {} is {}.", country, city);
+    }
+
+    /*
+    ¿Por qué utilizar HashMaps?
+
+    - Para almacenar datos por clave
+    - Para buscar valores rápidamente
+    - Para agrupar datos relacionados (como nombres y puntuaciones)
+    - Nota: HashMaps requiere que las claves sean únicas.
+    - Insertar la misma clave nuevamente sobrescribirá el valor anterior.
+
+    */
+
+    //Structs en Rust
+    println!("Structs en Rust: ");
+
+    /*
+        Una estructura (abreviatura de "estructura") es una estructura de datos
+        personalizada que le permite agrupar valores relacionados.
+
+        Por un lado, puedes pensar en una estructura como una mini base de datos,
+        como una persona con un nombre y una edad.
+    */
+
+    // Create a Struct called Person
+    struct Person {
+        name: String,
+        age: u32,
+        can_vote: bool,
+    }
+
+    // Create a Person object
+    let user = Person {
+        name: String::from("John"),
+        age: 35,
+        can_vote: true,
+    };
+
+    // Access and print the values
+    println!("Name: {}", user.name);
+    println!("Age: {}", user.age);
+    println!("Can vote? {}", user.can_vote);
+
+    /*
+       Los campos son similares a las variables,
+       pero pertenecen a una estructura.
+       Dado que son parte de una estructura más grande (como Persona o Coche),
+       en Rust se denominan campos, no variables regulares.
+    */
+
+    //Cambiar un campo
+    println!("Cambiar un campo: ");
+
+    /*
+       Para cambiar un valor dentro de una estructura,
+       debes hacer que el objeto de estructura
+       sea mutable usando `mut`:
+
+       Ejemplo:
+    */
+    struct Person2 {
+        name: String,
+        age: u32,
+    }
+
+    let mut user = Person2 {
+        name: String::from("John"),
+        age: 35,
+    };
+
+    user.age = 36; // Change value of age
+    println!("Name: {}", user.name);
+    println!("Updated age: {}", user.age);
+
+    /*
+    ¿Por qué utilizar estructuras?
+
+    - Agrupar datos relacionados de forma limpia
+    - Para que su código sea más fácil de leer y mantener
+    - Para crear ejemplos del mundo real, como usuarios, libros, coches, etc.
+
+    */
+
+    //Enums en Rust
+    println!("Enums en Rust: ");
+
+    /*
+    
+    Una enumeración (abreviatura de "enumeración") es una forma de definir un tipo 
+    que puede ser uno de unos pocos valores diferentes.
+
+    Cada valor de la enumeración se denomina variante.
+
+    Las enumeraciones son útiles cuando desea representar un valor que solo puede 
+    ser una de un conjunto de opciones, como días de la semana, direcciones o 
+    resultados como éxito y error. 
+    */
+
+    //Crear una enumeración
+    println!("Crear una enumeración: ");
+
+    
+
 }
